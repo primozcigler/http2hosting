@@ -2,11 +2,11 @@ Providers = new Mongo.Collection( 'providers' );
 
 if (Meteor.isClient) {
   // counter starts at 0
-  Session.setDefault('sortAsc', {name: 1});
+  Session.setDefault('tableSortObj', {name: 1});
 
   Template.providersTable.helpers({
     providers: function () {
-      return Providers.find({}, {sort: Session.get('sortAsc')});
+      return Providers.find({}, {sort: Session.get('tableSortObj')});
     }
   });
 
@@ -21,13 +21,13 @@ if (Meteor.isClient) {
         .siblings().removeClass('sorted-by-col');
 
       var ordering = {};
-      ordering[$target.data('col')] = 1;
+      ordering[$target.data('col')] = -1;
 
-      if (_.isEqual( ordering, Session.get( 'sortAsc' ) )) {
-        ordering[$target.data('col')] = -1;
+      if (_.isEqual( ordering, Session.get( 'tableSortObj' ) )) {
+        ordering[$target.data('col')] = 1;
       }
 
-      Session.set('sortAsc', ordering);
+      Session.set('tableSortObj', ordering);
     },
   });
 
