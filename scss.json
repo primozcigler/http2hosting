@@ -1,0 +1,6 @@
+{
+  "includePaths": [
+    "public/bower_components/bootstrap-sass-official/assets/stylesheets"
+  ],
+  "enableAutoprefixer": true
+}
