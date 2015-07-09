@@ -1,0 +1,60 @@
+<template name="singleProvider">
+  {{#with provider}}
+  <div class="provider">
+    <div class="row">
+      <div class="col-sm-8  col-sm-offset-4"><h1>{{name}}</h1></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right"><i>HTTP2hosting</i> score</div>
+      <div class="col-xs-8"><strong class="clr-success">{{h2hscore}}</strong></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Price range</div>
+      <div class="col-xs-8">{{price}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Votes</div>
+      <div class="col-xs-8">
+        <strong class="clr-{{votesState}}">{{votes}}</strong> &nbsp;
+        {{> voteArrows}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Added</div>
+      <div class="col-xs-8"><time>{{added}}</time></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Providing HTTP/2 since</div>
+      <div class="col-xs-8"><time>{{providingh2since}}</time></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Brief overview</div>
+      <div class="col-xs-6  provider__overview">
+        {{overview}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8  col-sm-offset-4"><a href="{{url}}" target="_blank" class="btn  btn-lg  btn-primary  provider__btn"><strong>Go to the website and check plans</strong></a></div>
+    </div>
+  </div>
+
+  <div class="comments">
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-8"><h3>Opinions</h3></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-8">here come disqus or meteor comments</div>
+    </div>
+  </div>
+  {{/with}}
+</template>
+
+<template name="voteArrows">
+  <div class="btn-group" role="group">
+    <button {{upState}} class="clr-success  btn  btn-default  js-vote" data-votedir="up" data-toggle="tooltip" title="Upvote"><i class="glyphicon glyphicon-chevron-up"></i></button>
+    <button {{downState}} class="clr-danger  btn  btn-default  js-vote" data-votedir="down" data-toggle="tooltip" title="Downvote"><i class="glyphicon glyphicon-chevron-down"></i></button>
+  </div>
+  {{#if voted}}
+    <small>You {{votedText}}voted!</small>
+  {{/if}}
+</template>

@@ -1,0 +1,29 @@
+<template name="providerRow">
+  <tr>
+  <td><a href="{{pathFor route="provider"}}">{{name}}</a></td>
+   <td>{{signedVotes}}</td>
+   <td>{{{priceDollars}}}</td>
+   <td>{{h2hscore}}</td>
+ </tr>
+</template>
+
+<template name="providersTable">
+  <div class="table-responsive">
+    <table class="table  table-striped  table-hover">
+      <caption class="sr-only">Table of the HTTP/2 providers.</caption>
+      <thead>
+        <tr>
+          <th>Provider <a href="#" class="js-sort-col" data-col="name"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th class="sorted-by-col">Votes <a href="#" class="js-sort-col" data-col="votes"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th>Price range <a href="#" class="js-sort-col" data-col="price"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th><abbr title="HTTP2Hosting">H2h</abbr> score <a href="#" class="js-sort-col" data-col="h2hscore"><i class="glyphicon glyphicon-sort"></i></a></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each providers}}
+          {{> providerRow}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

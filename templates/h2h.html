@@ -1,0 +1,49 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Find best http2 hosting today that other fellow developers recommend.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTTP2hosting - find HTTP/2 hosting for your site today</title>
+</head>
+
+<template name="SiteLayout">
+  {{> header}}
+
+  <div class="jumbotron">
+    <h1>Find HTTP/2 hosting providers quickly and easily.</h1>
+    <p class="lead">&hellip;as other fellas developers recommend today.</p>
+  </div>
+
+  <div class="container">
+    {{> yield}}
+  </div>
+
+  {{> footer}}
+</template>
+
+<template name="header">
+  <!--[if lt IE 10]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="{{pathFor route="home"}}">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="submit.html">Recommend a new provider</a></li>
+      </ul>
+      <h3 class="text-muted"><a href="{{pathFor route="home"}}">HTTP2hosting</a></h3>
+    </div>
+  </div>
+</template>
+
+<template name="footer">
+  <div class="container">
+    <div class="footer">
+      <p>Build by <a href="https://twitter.com/primozcigler">@primozcigler</a> with ♥ and <a href="https://www.meteor.com/">meteor</a>. Source code on <a href="https://github.com/primozcigler/http2hosting" target="_blank">github</a>.</p>
+    </div>
+  </div>
+
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+  <script src="/main.js"></script>
+</template>
