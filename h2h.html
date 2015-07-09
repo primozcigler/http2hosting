@@ -7,6 +7,9 @@
 
 <body>
 
+</body>
+
+<template name="SiteLayout">
   {{> header}}
 
   <div class="jumbotron">
@@ -15,15 +18,15 @@
   </div>
 
   <div class="container">
-    {{> providersTable}}
+    {{> yield}}
   </div>
 
   {{> footer}}
-</body>
+</template>
 
-<template name="provider">
+<template name="providerRow">
   <tr>
-  <td><a href="single.html">{{name}}</a></td>
+  <td><a href="{{pathFor route="provider"}}">{{name}}</a></td>
    <td>{{signedVotes}}</td>
    <td>{{{priceDollars}}}</td>
    <td>{{h2hscore}}</td>
@@ -44,7 +47,7 @@
       </thead>
       <tbody>
         {{#each providers}}
-          {{> provider}}
+          {{> providerRow}}
         {{/each}}
       </tbody>
     </table>

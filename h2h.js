@@ -1,6 +1,25 @@
 Providers = new Mongo.Collection( 'providers' );
 
 if (Meteor.isClient) {
+  /**
+   * Router
+   */
+  Router.configure({
+    layoutTemplate: 'SiteLayout'
+  });
+
+  // home
+  Router.route('/', function () {
+    this.render('providersTable');
+  });
+
+  Router.route('/provider/:_id', {
+    name: 'provider',
+    action: function () {
+      this.render('singleProvider');
+    },
+  });
+
   // counter starts at 0
   Session.setDefault('tableSortObj', {name: 1});
 
@@ -31,7 +50,7 @@ if (Meteor.isClient) {
     },
   });
 
-  Template.provider.helpers({
+  Template.providerRow.helpers({
     priceDollars: function () {
       return Array(this.price + 1).join('<i class="glyphicon glyphicon-usd"></i>');
     },
