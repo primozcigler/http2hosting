@@ -5,10 +5,6 @@
   <title>HTTP2hosting - find HTTP/2 hosting for your site today</title>
 </head>
 
-<body>
-
-</body>
-
 <template name="SiteLayout">
   {{> header}}
 
@@ -62,11 +58,11 @@
   <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="{{pathFor route="home"}}">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li class="active"><a href="submit.html">Recommend a new provider</a></li>
       </ul>
-      <h3 class="text-muted"><a href="index.html">HTTP2hosting</a></h3>
+      <h3 class="text-muted"><a href="{{pathFor route="home"}}">HTTP2hosting</a></h3>
     </div>
   </div>
 </template>
@@ -80,4 +76,64 @@
 
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
   <script src="/main.js"></script>
+</template>
+
+
+
+<template name="singleProvider">
+  <div class="provider">
+    <div class="row">
+      <div class="col-sm-8  col-sm-offset-4"><h1>{{name}}</h1></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right"><i>HTTP2hosting</i> score</div>
+      <div class="col-xs-8"><strong class="clr-success">{{h2hscore}}</strong></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Price range</div>
+      <div class="col-xs-8">{{price}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Votes</div>
+      <div class="col-xs-8">
+        <strong class="clr-success">{{votes}}</strong> &nbsp;
+        <div class="btn-group" role="group" aria-label="...">
+          <a href="#" class="clr-success  btn  btn-default" data-toggle="tooltip" title="Upvote"><i class="glyphicon glyphicon-chevron-up"></i></a>
+          <a href="#" class="clr-danger  btn  btn-default" data-toggle="tooltip" title="Downvote"><i class="glyphicon glyphicon-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Added</div>
+      <div class="col-xs-8"><time>May 5, 2015</time></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Providing HTTP/2 since</div>
+      <div class="col-xs-8"><time>January 1, 2015</time></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4  text-right">Brief overview</div>
+      <div class="col-xs-6  provider__overview">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perferendis dicta obcaecati, deleniti suscipit, voluptas ducimus quasi eaque ipsum laboriosam, et aspernatur animi itaque facere voluptatibus aut aperiam. Rem, magnam?</p>
+        <ul>
+          <li>Package 1: $10</li>
+          <li>Package 2: $29</li>
+          <li>Package 3: $109</li>
+        </ul>
+        <p>Ipsum dolor sit amet, consectetur adipisicing elit. Sit perferendis dicta obcaecati, deleniti suscipit, voluptas ducimus quasi eaque ipsum.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8  col-sm-offset-4"><a href="#" target="_blank" class="btn  btn-lg  btn-primary  provider__btn"><strong>Go to the website and check plans</strong></a></div>
+    </div>
+  </div>
+
+  <div class="comments">
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-8"><h3>Opinions</h3></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-8">here come disqus or meteor comments</div>
+    </div>
+  </div>
 </template>

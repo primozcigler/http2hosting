@@ -9,14 +9,22 @@ if (Meteor.isClient) {
   });
 
   // home
-  Router.route('/', function () {
-    this.render('providersTable');
+  Router.route('/', {
+    name: 'home',
+    action: function () {
+      this.render('providersTable');
+    }
   });
 
+  // single provider
   Router.route('/provider/:_id', {
     name: 'provider',
     action: function () {
-      this.render('singleProvider');
+      this.render('singleProvider', {
+        data: function () {
+          return Providers.findOne({_id: this.params._id});
+        }
+      });
     },
   });
 
