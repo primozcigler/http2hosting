@@ -10,12 +10,12 @@
     </div>
     <div class="row">
       <div class="col-xs-4  text-right">Price range</div>
-      <div class="col-xs-8">{{price}}</div>
+      <div class="col-xs-8">{{{priceRange price}}}</div>
     </div>
     <div class="row">
       <div class="col-xs-4  text-right">Votes</div>
       <div class="col-xs-8">
-        <strong class="clr-{{votesState}}">{{votes}}</strong> &nbsp;
+        <strong class="clr-{{votesState}}">{{signedNum votes}}</strong> &nbsp;
         {{> voteArrows}}
       </div>
     </div>

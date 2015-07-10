@@ -1,12 +1,3 @@
-<template name="providerRow">
-  <tr>
-  <td><a href="{{pathFor route="provider"}}">{{name}}</a></td>
-   <td>{{signedVotes}}</td>
-   <td>{{{priceDollars}}}</td>
-   <td>{{h2hscore}}</td>
- </tr>
-</template>
-
 <template name="providersTable">
   <div class="table-responsive">
     <table class="table  table-striped  table-hover">
@@ -28,4 +19,13 @@
       </tbody>
     </table>
   </div>
+</template>
+
+<template name="providerRow">
+  <tr>
+  <td><a href="{{pathFor route="provider"}}">{{name}}</a></td>
+   <td>{{signedNum votes}}</td>
+   <td>{{{priceRange price}}}</td>
+   <td>{{h2hs votes price}}</td>
+ </tr>
 </template>

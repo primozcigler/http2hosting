@@ -34,13 +34,3 @@ Template.providersTable.events({
 Template.providersTable.onCreated(function () {
   this.subscribe('providers');
 });
-
-Template.providerRow.helpers({
-  priceDollars: function () {
-    return Utils.priceRangeAsIcons(this.price);
-  },
-
-  signedVotes: function () {
-    return this.votes > 0 ? '+' + this.votes : this.votes;
-  },
-});
