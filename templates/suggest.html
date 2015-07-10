@@ -1,0 +1,73 @@
+<template name="suggest">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-8">
+      <h1>Suggest a new provider</h1>
+      <p>This will be available in the following days.</p>
+      <p>All submissions are manually supervisied before published to the site. Please allow up to 3 working days before resubmitting the form.</p>
+    </div>
+  </div>
+
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="submitName" class="col-sm-4 control-label">Name of provider</label>
+      <div class="col-sm-8">
+        <input required type="text" class="form-control" id="submitName" placeholder="Google Compute Engine">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="submitURL" class="col-sm-4 control-label">URL to provider's home page</label>
+      <div class="col-sm-8">
+        <input required type="url" class="form-control" id="submitURL" placeholder="https://cloud.google.com/compute/">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="submitURLHTTP2" class="col-sm-4 control-label">URL to provider's page with HTTP/2 services</label>
+      <div class="col-sm-8">
+        <input required type="url" class="form-control" id="submitURLHTTP2" placeholder="https://cloud.google.com/compute/#apps">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="submitPrice" class="col-sm-4 control-label">Price of the cheapest package</label>
+      <div class="col-sm-8">
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input required type="text" id="submitPrice" class="form-control" aria-label="Amount" placeholder="19.90">
+          <span class="input-group-addon">/month</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="submitPersonName" class="col-sm-4 control-label">Your name</label>
+      <div class="col-sm-8">
+        <input required type="text" class="form-control" id="submitPersonName" placeholder="John Doe">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="submitPersonmail" class="col-sm-4 control-label">Your email</label>
+      <div class="col-sm-8">
+        <input required type="email" class="form-control" id="submitPersonmail" placeholder="john.doe@gmail.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Is this your business?</label>
+      <div class="col-sm-8">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> I am the CEO or representative of the business I am submitting
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="submitNote" class="col-sm-4 control-label">Any additional notes?</label>
+      <div class="col-sm-8">
+        <textarea class="form-control" id="submitNote" placeholder="john.doe@gmail.com"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <button type="submit" class="btn btn-primary btn-lg">Send</button>
+      </div>
+    </div>
+  </form>
+</template>

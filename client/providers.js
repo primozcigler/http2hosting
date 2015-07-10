@@ -1,5 +1,5 @@
 // counter starts at 0
-Session.setDefault('tableSortObj', {name: 1});
+Session.setDefaultPersistent('tableSortObj', {name: 1});
 
 Template.providersTable.helpers({
   providers: function () {
@@ -26,7 +26,7 @@ Template.providersTable.events({
       ordering[$target.data('col')] = 1;
     }
 
-    Session.set('tableSortObj', ordering);
+    Session.setPersistent('tableSortObj', ordering);
   },
 });
 

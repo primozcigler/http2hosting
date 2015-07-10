@@ -29,8 +29,8 @@
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li><a href="{{pathFor route="home"}}">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li class="active"><a href="submit.html">Recommend a new provider</a></li>
+        <!-- <li><a href="about.html">About</a></li> -->
+        <li class="active"><a href="{{pathFor route="suggest"}}">Recommend a new provider</a></li>
       </ul>
       <h3 class="text-muted"><a href="{{pathFor route="home"}}">HTTP2hosting</a></h3>
     </div>
@@ -44,6 +44,6 @@
     </div>
   </div>
 
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+  <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
   <script src="/main.js"></script>
 </template>

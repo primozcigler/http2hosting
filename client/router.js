@@ -24,7 +24,12 @@ Router.route('/provider/:_id', {
   },
 });
 
-// single provider
+// login
 Router.route('/login', {
   name: 'login'
+});
+
+// suggest new
+Router.route('/suggest-provider', {
+  name: 'suggest'
 });

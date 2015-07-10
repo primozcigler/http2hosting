@@ -21,3 +21,16 @@ Template.registerHelper('priceRange', function (price) {
 Template.registerHelper('h2hs', function (votes, price) {
   return Math.round( 0.6*votes - 0.4*price );
 });
+
+
+Template.registerHelper('colorClass', function (num) {
+  if (num > 0) {
+    return 'success';
+  }
+  else if (num < 0) {
+    return 'danger';
+  }
+  else {
+    return 'info';
+  }
+});

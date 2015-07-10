@@ -11,3 +11,6 @@ iron:router
 spiderable
 accounts-ui
 accounts-password
+u2622:persistent-session
+momentjs:moment
+obvio171:disqus

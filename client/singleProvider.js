@@ -1,14 +1,10 @@
 Template.singleProvider.helpers({
-	votesState: function () {
-		if (this.votes > 0) {
-			return 'success';
-		}
-		else if (this.votes < 0) {
-			return 'danger';
-		}
-		else {
-			return 'info';
-		}
+	formattedDate: function (dateObj) {
+		return moment(dateObj).format('MMMM Do YYYY');
+	},
+
+	ISODate: function (dateObj) {
+		return moment(dateObj).toISOString();
 	},
 });
 
@@ -37,15 +33,19 @@ Template.voteArrows.events({
 			$currentTarget = $(ev.currentTarget),
 			value = $currentTarget.data('votedir') === 'up' ? 1 : -1;
 
-		Session.setDefault(sesskey, 0);
+		Session.setDefaultPersistent(sesskey, 0);
 		var sessval = Session.get(sesskey);
 
 		Providers.update({_id: this._id}, {$set: {votes: this.votes + value}});
 
 		if (_.contains([1, -1], sessval)) {
-			Session.set(sesskey, 0);
+			Session.setPersistent(sesskey, 0);
 		} else {
-			Session.set(sesskey, value);
+			Session.setPersistent(sesskey, value);
 		}
 	}
+});
+
+Template.voteArrows.onRendered(function () {
+	this.$('button').tooltip();
 });
