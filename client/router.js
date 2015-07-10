@@ -23,3 +23,8 @@ Router.route('/provider/:_id', {
     });
   },
 });
+
+// single provider
+Router.route('/login', {
+  name: 'login'
+});

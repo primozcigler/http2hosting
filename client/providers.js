@@ -4,6 +4,12 @@ Session.setDefault('tableSortObj', {name: 1});
 Template.providersTable.helpers({
   providers: function () {
     return Providers.find({}, {sort: Session.get('tableSortObj')});
+  },
+
+  activeCol: function (colName) {
+    if (_.contains(_.keys(Session.get('tableSortObj')), colName)) {
+      return 'sorted-by-col';
+    }
   }
 });
 
@@ -13,12 +19,8 @@ Template.providersTable.events({
 
     var $target = $(ev.currentTarget);
 
-    $target.parent()
-      .addClass('sorted-by-col')
-      .siblings().removeClass('sorted-by-col');
-
     var ordering = {};
-    ordering[$target.data('col')] = -1;
+    ordering[$target.data('col')] = -1; // default ordering for all fields is descending
 
     if (_.isEqual( ordering, Session.get( 'tableSortObj' ) )) {
       ordering[$target.data('col')] = 1;
@@ -28,9 +30,14 @@ Template.providersTable.events({
   },
 });
 
+// wait that the providers are available
+Template.providersTable.onCreated(function () {
+  this.subscribe('providers');
+});
+
 Template.providerRow.helpers({
   priceDollars: function () {
-    return Array(this.price + 1).join('<i class="glyphicon glyphicon-usd"></i>');
+    return Utils.priceRangeAsIcons(this.price);
   },
 
   signedVotes: function () {

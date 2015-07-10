@@ -13,16 +13,18 @@
       <caption class="sr-only">Table of the HTTP/2 providers.</caption>
       <thead>
         <tr>
-          <th>Provider <a href="#" class="js-sort-col" data-col="name"><i class="glyphicon glyphicon-sort"></i></a></th>
-          <th class="sorted-by-col">Votes <a href="#" class="js-sort-col" data-col="votes"><i class="glyphicon glyphicon-sort"></i></a></th>
-          <th>Price range <a href="#" class="js-sort-col" data-col="price"><i class="glyphicon glyphicon-sort"></i></a></th>
-          <th><abbr title="HTTP2Hosting">H2h</abbr> score <a href="#" class="js-sort-col" data-col="h2hscore"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th class="{{activeCol "name"}}">Provider <a href="#" class="js-sort-col" data-col="name"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th class="{{activeCol "votes"}}">Votes <a href="#" class="js-sort-col" data-col="votes"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th class="{{activeCol "price"}}">Price range <a href="#" class="js-sort-col" data-col="price"><i class="glyphicon glyphicon-sort"></i></a></th>
+          <th class="{{activeCol "h2hscore"}}"><abbr title="HTTP2Hosting">H2h</abbr> score <a href="#" class="js-sort-col" data-col="h2hscore"><i class="glyphicon glyphicon-sort"></i></a></th>
         </tr>
       </thead>
       <tbody>
-        {{#each providers}}
-          {{> providerRow}}
-        {{/each}}
+        {{#if Template.subscriptionsReady}}
+          {{#each providers}}
+            {{> providerRow}}
+          {{/each}}
+        {{/if}}
       </tbody>
     </table>
   </div>
