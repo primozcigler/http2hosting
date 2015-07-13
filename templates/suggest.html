@@ -2,16 +2,19 @@
   <div class="row">
     <div class="col-sm-offset-4 col-sm-8">
       <h1>Suggest a new provider</h1>
-      <p>This will be available in the following days.</p>
       <p>All submissions are manually supervisied before published to the site. Please allow up to 3 working days before resubmitting the form.</p>
     </div>
   </div>
 
-  <form class="form-horizontal">
+  {{> form}}
+</template>
+
+<template name="form">
+  <form class="form-horizontal  form-suggest">
     <div class="form-group">
       <label for="submitName" class="col-sm-4 control-label">Name of provider</label>
       <div class="col-sm-8">
-        <input required type="text" class="form-control" id="submitName" placeholder="Google Compute Engine">
+        <input required type="text" name="name" class="form-control" id="submitName" placeholder="Google Compute Engine">
       </div>
     </div>
     <div class="form-group">
@@ -31,7 +34,7 @@
       <div class="col-sm-8">
         <div class="input-group">
           <span class="input-group-addon">$</span>
-          <input required type="text" id="submitPrice" class="form-control" aria-label="Amount" placeholder="19.90">
+          <input required type="text" name="price" id="submitPrice" class="form-control" aria-label="Amount" placeholder="19.90">
           <span class="input-group-addon">/month</span>
         </div>
       </div>
@@ -61,7 +64,7 @@
     <div class="form-group">
       <label for="submitNote" class="col-sm-4 control-label">Any additional notes?</label>
       <div class="col-sm-8">
-        <textarea class="form-control" id="submitNote" placeholder="john.doe@gmail.com"></textarea>
+        <textarea name="notes" class="form-control" id="submitNote" placeholder="john.doe@gmail.com"></textarea>
       </div>
     </div>
     <div class="form-group">

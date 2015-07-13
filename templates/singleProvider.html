@@ -2,7 +2,15 @@
   {{#with provider}}
   <div class="provider">
     <div class="row">
-      <div class="col-sm-8  col-sm-offset-4"><h1>{{name}}</h1></div>
+      <div class="col-sm-8  col-sm-offset-4">
+        <h1>
+          {{#if currentUser}}
+            <input type="text" name="name" value="{{name}}">
+          {{else}}
+            {{name}}
+          {{/if}}
+        </h1>
+      </div>
     </div>
     <div class="row">
       <div class="col-xs-4  text-right"><i>HTTP2hosting</i> score</div>
@@ -10,7 +18,13 @@
     </div>
     <div class="row">
       <div class="col-xs-4  text-right">Price range</div>
-      <div class="col-xs-8">{{{priceRange price}}}</div>
+      <div class="col-xs-8">
+        {{#if currentUser}}
+          <input type="text" name="price" value="{{price}}">
+        {{else}}
+          {{{priceRange price}}}
+        {{/if}}
+      </div>
     </div>
     <div class="row">
       <div class="col-xs-4  text-right">Votes</div>
@@ -24,18 +38,23 @@
       <div class="col-xs-8"><time datetime="{{ISODate added}}" title="test">{{formattedDate added}}</time></div>
     </div>
     <div class="row">
-      <div class="col-xs-4  text-right">Providing HTTP/2 since</div>
-      <div class="col-xs-8"><time datetime="{{ISODate providingh2since}}">{{formattedDate providingh2since}}</time></div>
-    </div>
-    <div class="row">
       <div class="col-xs-4  text-right">Brief overview</div>
       <div class="col-xs-6  provider__overview">
-        {{overview}}
+        {{#if currentUser}}
+          <textarea rows="7" name="overview" class="form-control">{{overview}}</textarea>
+        {{else}}
+          {{#markdown}}{{{overview}}}{{/markdown}}
+        {{/if}}
       </div>
     </div>
     <div class="row">
       <div class="col-sm-8  col-sm-offset-4"><a href="{{url}}" target="_blank" class="btn  btn-lg  btn-primary  provider__btn"><strong>Go to the website and check plans</strong></a></div>
     </div>
+    {{#if currentUser}}
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-4"><form class="delete-form text-right"><button type="submit" class="btn btn-danger btn-link">Delete provider</button></form></div>
+    </div>
+    {{/if}}
   </div>
 
   <div class="comments">

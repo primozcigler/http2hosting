@@ -1,5 +1,5 @@
 // counter starts at 0
-Session.setDefaultPersistent('tableSortObj', {name: 1});
+Session.setDefault('tableSortObj', {name: 1});
 
 Template.providersTable.helpers({
   providers: function () {
